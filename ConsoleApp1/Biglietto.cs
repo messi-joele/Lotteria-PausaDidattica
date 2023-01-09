@@ -22,15 +22,52 @@ namespace ConsoleApp1
             this.citta = citta;
             this.premio = premio;
         }
+        protected Biglietto(Biglietto other) : this(other.serie, other.numero, other.citta, other.premio)
+        {
+        }
 
-        // Genera un numero casuale per il biglietto
+        public string Serie {
+            get { return serie; }
+           set { serie = value; }
+        }
+        public int Numero { 
+            get { return numero; }
+            set { numero = value; }
+        }
+        public string Citta { 
+            get { return citta; }
+            set { citta = value; }
+        }
+        public int Premio { 
+            get { return premio; }
+            set { premio = value; }
+        }
+
+        public Biglietto Clone()
+        {
+            return new Biglietto (this);
+        }
+        public bool Equals(Biglietto p)
+        {
+            if (p == null) return false;
+
+            if (this == p) return true;
+
+            return (this.serie == p.serie);
+        }
+        public override string ToString()
+        {
+            return "biglietto:" + Serie + ";" + numero + ";" + citta + ";" + premio;
+        }
+
+
         public void GeneraNumeroCasuale()
         {
             Random rnd = new Random();
             this.numero = rnd.Next(1000000);
         }
 
-        // Imposta/modifica i dati del biglietto
+       
         public void ImpostaDati(string serie, int numero, string citta, int premio)
         {
             this.serie = serie;
@@ -39,47 +76,56 @@ namespace ConsoleApp1
             this.premio = premio;
         }
 
-        // Visualizza se il biglietto è vincente
-        public void VisualizzaSeVincente()
+       
+        public int VisualizzaSeVincente()
         {
+
+            int a=1;
+            int b=0;
             if (this.premio > 0)
             {
-                Console.WriteLine("Il biglietto è vincente!");
+              return a;
             }
             else
             {
-                Console.WriteLine("Il biglietto non è vincente.");
+               return b;
             }
         }
 
-        // Confronta due biglietti e segnala quello con il premio maggiore
-        public static void ConfrontaBiglietti(Biglietto biglietto1, Biglietto biglietto2)
+        
+        public int ConfrontaBiglietti( Biglietto biglietto1)
         {
-            if (biglietto1.premio > biglietto2.premio)
+            int a=1;
+            int b=-1;
+            int c=0;
+            if (this.premio > biglietto1.premio)
             {
-                Console.WriteLine("Il biglietto 1 ha il premio maggiore.");
+                return a;
             }
-            else if (biglietto2.premio > biglietto1.premio)
+            else if (biglietto1.premio > this.premio)
             {
-                Console.WriteLine("Il biglietto 2 ha il premio maggiore.");
+               return b;
             }
             else
             {
-                Console.WriteLine("I biglietti hanno lo stesso premio.");
+                return c;
             }
         }
 
-        // Controlla l'appartenenza di due biglietti alla stessa serie
-        public static void ControllaAppartenenzaSerie(Biglietto biglietto1, Biglietto biglietto2)
+        public int ControllaAppartenenzaSerie(Biglietto biglietto1)
         {
-            if (biglietto1.serie == biglietto2.serie)
+            int a = 1;
+            int b = 0;
+            if (this.serie == biglietto1.serie)
             {
-                Console.WriteLine("I biglietti appartengono alla stessa serie.");
+                return a;
             }
             else
             {
-                Console.WriteLine("I biglietti non appartengono alla stessa serie.");
+                return b;
             }
         }
+
+      
     }
     }

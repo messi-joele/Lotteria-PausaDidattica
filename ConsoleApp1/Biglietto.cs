@@ -15,24 +15,24 @@ namespace ConsoleApp1
         private int premio;
 
         // Costruttore della classe
-        public Biglietto(string serie, int numero, string citta, int premio)
+        public Biglietto(string citta, int premio)
         {
-            this.serie = serie;
-            this.numero = numero;
+            ImpostaSerieCasuale();
+            ImpostaNumeroCasuale();
             this.citta = citta;
             this.premio = premio;
         }
-        protected Biglietto(Biglietto other) : this(other.serie, other.numero, other.citta, other.premio)
+        protected Biglietto(Biglietto other) : this( other.citta, other.premio)
         {
         }
 
         public string Serie {
             get { return serie; }
-           set { serie = value; }
+           private set { serie = value; }
         }
         public int Numero { 
             get { return numero; }
-            set { numero = value; }
+            private set { numero = value; }
         }
         public string Citta { 
             get { return citta; }
@@ -61,13 +61,25 @@ namespace ConsoleApp1
         }
 
 
-        public void GeneraNumeroCasuale()
+        public void ImpostaNumeroCasuale()
         {
             Random rnd = new Random();
             this.numero = rnd.Next(1000000);
         }
+        public void ImpostaSerieCasuale()
+        {
+            Random rnd = new Random();
 
-       
+            
+            int randomNumber = rnd.Next(26);
+
+            
+            char randomLetter = (char)('a' + randomNumber);
+
+            this.serie =Convert.ToString( randomLetter);
+        }
+
+
         public void ImpostaDati(string serie, int numero, string citta, int premio)
         {
             this.serie = serie;
@@ -77,19 +89,11 @@ namespace ConsoleApp1
         }
 
        
-        public int VisualizzaSeVincente()
+        public bool VisualizzaSeVincente()
         {
 
-            int a=1;
-            int b=0;
-            if (this.premio > 0)
-            {
-              return a;
-            }
-            else
-            {
-               return b;
-            }
+            return (this.premio > 0);
+
         }
 
         

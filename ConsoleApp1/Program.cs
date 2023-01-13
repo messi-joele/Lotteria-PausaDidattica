@@ -13,6 +13,8 @@ namespace ConsoleApp1
 
             Biglietto b1 = new Biglietto("Bergamo", 1000);
             Biglietto b2 = new Biglietto("Verona", 5000);
+
+
             Console.WriteLine("PRIMO BIGLIETTO:");
             Console.Write(b1.Serie);
             Console.WriteLine(b1.Numero);
@@ -21,8 +23,14 @@ namespace ConsoleApp1
             Console.WriteLine(b2.Numero);
 
 
+
             Console.WriteLine(b1.VisualizzaSeVincente());
-            
+            Console.WriteLine(b2.VisualizzaSeVincente());
+
+
+            b1.ConfrontaBiglietti(b2);
+            Console.WriteLine(Convert.ToString(b1.ConfrontaBiglietti(b2)));
+
 
 
             //Console.ReadLine();

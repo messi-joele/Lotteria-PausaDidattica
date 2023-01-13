@@ -1,6 +1,7 @@
-﻿    using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,39 +14,46 @@ namespace ConsoleApp1
         private int numero;
         private string citta;
         private int premio;
+        private static Random rnd = new Random();
 
         // Costruttore della classe
         public Biglietto(string citta, int premio)
         {
+
+
             ImpostaSerieCasuale();
             ImpostaNumeroCasuale();
             this.citta = citta;
             this.premio = premio;
         }
-        protected Biglietto(Biglietto other) : this( other.citta, other.premio)
+        protected Biglietto(Biglietto other) : this(other.citta, other.premio)
         {
         }
 
-        public string Serie {
+        public string Serie
+        {
             get { return serie; }
-           private set { serie = value; }
+            private set { serie = value; }
         }
-        public int Numero { 
+        public int Numero
+        {
             get { return numero; }
             private set { numero = value; }
         }
-        public string Citta { 
+        public string Citta
+        {
             get { return citta; }
             set { citta = value; }
         }
-        public int Premio { 
+        public int Premio
+        {
             get { return premio; }
             set { premio = value; }
         }
 
         public Biglietto Clone()
         {
-            return new Biglietto (this);
+            return new Biglietto(this);
         }
         public bool Equals(Biglietto p)
         {
@@ -63,20 +71,19 @@ namespace ConsoleApp1
 
         public void ImpostaNumeroCasuale()
         {
-            Random rnd = new Random();
             this.numero = rnd.Next(1000000);
         }
         public void ImpostaSerieCasuale()
         {
-            Random rnd = new Random();
 
-            
+
+
             int randomNumber = rnd.Next(26);
 
-            
+
             char randomLetter = (char)('a' + randomNumber);
 
-            this.serie =Convert.ToString( randomLetter);
+            this.serie = Convert.ToString(randomLetter);
         }
 
 
@@ -88,7 +95,7 @@ namespace ConsoleApp1
             this.premio = premio;
         }
 
-       
+
         public bool VisualizzaSeVincente()
         {
 
@@ -96,19 +103,19 @@ namespace ConsoleApp1
 
         }
 
-        
-        public int ConfrontaBiglietti( Biglietto biglietto1)
+
+        public int ConfrontaBiglietti(Biglietto biglietto1)
         {
-            int a=1;
-            int b=-1;
-            int c=0;
+            int a = 1;
+            int b = -1;
+            int c = 0;
             if (this.premio > biglietto1.premio)
             {
                 return a;
             }
             else if (biglietto1.premio > this.premio)
             {
-               return b;
+                return b;
             }
             else
             {
@@ -116,20 +123,19 @@ namespace ConsoleApp1
             }
         }
 
-        public int ControllaAppartenenzaSerie(Biglietto biglietto1)
+        public bool ControllaAppartenenzaSerie(Biglietto biglietto1)
         {
-            int a = 1;
-            int b = 0;
+
             if (this.serie == biglietto1.serie)
             {
-                return a;
+                return true;
             }
             else
             {
-                return b;
+                return false;
             }
         }
 
-      
+
     }
-    }
+}

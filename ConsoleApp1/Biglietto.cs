@@ -87,13 +87,23 @@ namespace ConsoleApp1
         }
 
 
-        public void ImpostaDati(string serie, int numero, string citta, int premio)
+        public void Aggiungi(string serie, int numero, string citta, int premio)
+
         {
-            this.serie = serie;
-            this.numero = numero;
+
+            this.numero = rnd.Next(1000000);
+            int randomNumber = rnd.Next(26);
+
+
+            char randomLetter = (char)('a' + randomNumber);
+
+            this.serie = Convert.ToString(randomLetter);
+          
             this.citta = citta;
             this.premio = premio;
         }
+
+       
 
 
         public bool VisualizzaSeVincente()

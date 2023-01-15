@@ -18,9 +18,13 @@ namespace ConsoleApp1
             Console.WriteLine("PRIMO BIGLIETTO:");
             Console.Write(b1.Serie);
             Console.WriteLine(b1.Numero);
+            Console.WriteLine(b1.Citta);
+            Console.WriteLine(b1.Premio);
             Console.WriteLine("SECONDO BIGLIETTO:");
             Console.Write(b2.Serie);
             Console.WriteLine(b2.Numero);
+            Console.WriteLine(b2.Citta);
+            Console.WriteLine(b2.Premio);
 
 
 
@@ -30,6 +34,25 @@ namespace ConsoleApp1
 
             b1.ConfrontaBiglietti(b2);
             Console.WriteLine(Convert.ToString(b1.ConfrontaBiglietti(b2)));
+
+            Console.WriteLine("CREA BIGLIETTO");
+            Console.WriteLine("INSERISCI CITTA");
+            string c = Console.ReadLine();
+                Console.WriteLine("INSERISCI VINCITA");
+
+            int d = int.Parse(Console.ReadLine());
+
+            Biglietto b3 = new Biglietto( c, d);
+            Console.Write(b3.Serie);
+            Console.WriteLine(b3.Numero);
+            Console.WriteLine(b3.Citta);
+            Console.WriteLine(b3.Premio);
+
+            
+
+
+
+
 
 
 

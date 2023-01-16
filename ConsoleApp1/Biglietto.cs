@@ -153,18 +153,18 @@ namespace ConsoleApp1
 
         public bool ConfrontaNumeri(Biglietto b)
         {
-            int a1 = Convert.ToString(this.numero).Substring(0,1);
-            int a2 = Convert.ToString(this.numero).Substring(1,1);
-            int a3 = Convert.ToString(this.numero).Substring(2,1);
-            int a4 = Convert.ToString(this.numero).Substring(3,1);
-            int a5 = Convert.ToString(this.numero).Substring(4,1);
-            int a6 = Convert.ToString(this.numero).Substring(5,1);
-            int b1 = Convert.ToString(b.numero).Substring(0,1);
-            int b2 = Convert.ToString(b.numero).Substring(1,1);
-            int b3 = Convert.ToString(b.numero).Substring(2,1);
-            int b4 = Convert.ToString(b.numero).Substring(3,1);
-            int b5 = Convert.ToString(b.numero).Substring(4,1);
-            int b6 = Convert.ToString(b.numero).Substring(5,1);
+            string a1 = Convert.ToString(this.numero).Substring(0,1);
+            string a2 = Convert.ToString(this.numero).Substring(1,1);
+            string a3 = Convert.ToString(this.numero).Substring(2,1);
+            string a4 = Convert.ToString(this.numero).Substring(3,1);
+            string a5 = Convert.ToString(this.numero).Substring(4,1);
+            string a6 = Convert.ToString(this.numero).Substring(5,1);
+            string b1 = Convert.ToString(b.numero).Substring(0,1);
+            string b2 = Convert.ToString(b.numero).Substring(1,1);
+            string b3 = Convert.ToString(b.numero).Substring(2,1);
+            string b4 = Convert.ToString(b.numero).Substring(3,1);
+            string b5 = Convert.ToString(b.numero).Substring(4,1);
+            string b6 = Convert.ToString(b.numero).Substring(5,1);
 
             if(a1 != b1)
             {
@@ -191,6 +191,7 @@ namespace ConsoleApp1
             {
                 return false;
             }
+            return true;
         }
 
 

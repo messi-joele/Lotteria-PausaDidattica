@@ -109,36 +109,46 @@ namespace ConsoleApp1
         }
 
 
-        public int ConfrontaBiglietti(Biglietto biglietto1)
+       public int ConfrontaBiglietti(Biglietto biglietto1)
         {
             int a = 1;
             int b = -1;
             int c = 0;
-            if (this.premio > biglietto1.premio)
+
+            if (biglietto1 != null)
             {
-                return a;
+                if (this.premio > biglietto1.premio)
+                {
+                    return a;
+                }
+                else if (biglietto1.premio > this.premio)
+                {
+                    return b;
+                }
+                else
+                {
+                    return c;
+                }
             }
-            else if (biglietto1.premio > this.premio)
-            {
-                return b;
-            }
-            else
-            {
-                return c;
-            }
+            else { throw new Exception("Inseririre biglietto valido"); }
         }
 
         public bool ControllaAppartenenzaSerie(Biglietto biglietto1)
         {
 
-            if (this.serie == biglietto1.serie)
+            if (biglietto1 == null)
             {
-                return true;
+
+                if (this.serie == biglietto1.serie)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
-            else
-            {
-                return false;
-            }
+            else { throw new Exception("Inseririre biglietto valido"); }
         }
 
         public bool ConfrontaNumeri(Biglietto b)

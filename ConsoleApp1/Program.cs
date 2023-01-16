@@ -35,18 +35,9 @@ namespace ConsoleApp1
             b1.ConfrontaBiglietti(b2);
             Console.WriteLine(Convert.ToString(b1.ConfrontaBiglietti(b2)));
 
-            Console.WriteLine("CREA BIGLIETTO");
-            Console.WriteLine("INSERISCI CITTA");
-            string c = Console.ReadLine();
-                Console.WriteLine("INSERISCI VINCITA");
+            
 
-            int d = int.Parse(Console.ReadLine());
-
-            Biglietto b3 = new Biglietto( c, d);
-            Console.Write(b3.Serie);
-            Console.WriteLine(b3.Numero);
-            Console.WriteLine(b3.Citta);
-            Console.WriteLine(b3.Premio);
+            
 
             
 

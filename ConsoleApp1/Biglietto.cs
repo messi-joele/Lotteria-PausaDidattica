@@ -87,20 +87,15 @@ namespace ConsoleApp1
         }
 
 
-        public void Aggiungi(string serie, int numero, string citta, int premio)
+        public void ModDati (string citta, int premio)
 
         {
 
-            this.numero = rnd.Next(1000000);
-            int randomNumber = rnd.Next(26);
-
-
-            char randomLetter = (char)('a' + randomNumber);
-
-            this.serie = Convert.ToString(randomLetter);
-          
             this.citta = citta;
             this.premio = premio;
+            ImpostaSerieCasuale();
+            ImpostaNumeroCasuale();
+
         }
 
        
@@ -141,6 +136,48 @@ namespace ConsoleApp1
                 return true;
             }
             else
+            {
+                return false;
+            }
+        }
+
+        public bool ConfrontaNumeri(Biglietto b)
+        {
+            int a1 = Convert.ToString(this.numero).Substring(0,1);
+            int a2 = Convert.ToString(this.numero).Substring(1,1);
+            int a3 = Convert.ToString(this.numero).Substring(2,1);
+            int a4 = Convert.ToString(this.numero).Substring(3,1);
+            int a5 = Convert.ToString(this.numero).Substring(4,1);
+            int a6 = Convert.ToString(this.numero).Substring(5,1);
+            int b1 = Convert.ToString(b.numero).Substring(0,1);
+            int b2 = Convert.ToString(b.numero).Substring(1,1);
+            int b3 = Convert.ToString(b.numero).Substring(2,1);
+            int b4 = Convert.ToString(b.numero).Substring(3,1);
+            int b5 = Convert.ToString(b.numero).Substring(4,1);
+            int b6 = Convert.ToString(b.numero).Substring(5,1);
+
+            if(a1 != b1)
+            {
+                return false;
+                
+            }
+            else if (a2 != b2)
+            {
+                    return false;
+            }
+            else if (a3 != b3)
+            {
+                return false;
+            }
+            else if (a4 != b4)
+            {
+                return false;
+            }
+            else if (a5 != b5)
+            {
+                return false;
+            }
+            else if (a6 != b6)
             {
                 return false;
             }
